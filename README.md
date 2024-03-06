@@ -10,6 +10,9 @@ This template should help get you started developing with Vue 3 in Vite.
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
+## To use this project
+Replace `YOUR_API_KEY` in `src/components/Search.vue` with your actual API key.
+
 ## Project Setup
 
 ```sh
