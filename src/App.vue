@@ -1,10 +1,17 @@
 <script setup>
 import Search from './components/Search.vue';
+import Weather from './components/Weather.vue';
+
 import {ref} from 'vue';
 const villes=ref([]);
 const addVille = (data)=>{
   villes.value.push(data);
 
+}
+const deleteVille = (name) => {
+  if (confirm('Are you sure')) {
+    villes.value = villes.value.filter((p) => p.location.name !== name)
+  }
 }
 </script>
 <template>
@@ -19,13 +26,14 @@ const addVille = (data)=>{
         })
         }}
     </div>
-    <div>
+    <div class="text-center">
       <Search @ville-data="addVille" />
     </div>
-    <div>
-      <p v-for="ville in villes">{{ ville.location.name }},
-      {{ ville.current.temp_c}} °C.  {{ ville.location.localtime }}
-    </p>
+    <div class="" style="display: flex; justify-content: space-around;">
+      <div v-for="(ville, idx) in villes" :key="idx" style="padding: 5px;">
+        <Weather :ville="ville" @delete-ville="deleteVille" />
+      </div>
     </div>
+ 
   </div>
 </template>

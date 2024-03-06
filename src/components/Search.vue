@@ -21,8 +21,7 @@ const handleSearch = () => {
   }, searchTerm);
 }
 const getWeather = async (id) => {
-  
-  const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${YOUR_API_KEY}=&q=id:${id}&days=3&aqi=no&alerts=no`)
+  const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=acd852848e8a4cdebe6111630240503&q=id:${id}&days=3&aqi=no&alerts=no`)
   const data = await res.json();
 
   emit('ville-data', data)
@@ -39,7 +38,7 @@ const getWeather = async (id) => {
     <!-- search field -->
     <form>
       <div class="bg-black border border-indigo-600/30 rounded-lg shadow-lg flex items-center">
-        <i class="fa-solid fa-magnifying-glass p-2 text-indigo-600"></i>
+        <i class="fa-solid fa-magnifying-glass p-2 text-indigo-600" ></i>
         <input type="text" placeholder="Search for a ville"
           class="rounded-r-lg p-2 bg-black border-0 outline-0 focus:ring-2 focus:ring-indigo-600 ring-inset w-full"
           v-model="searchTerm.query" @input="handleSearch" />
